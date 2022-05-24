@@ -39,14 +39,17 @@ def data_arrange(data_list):
     title = ""
     for data in data_list:
         if "Pusat" in data:
-            title = data.split(':')[1].split(',')[0].strip()
+
             if children:
-                id = 0
-                grands.insert(0, title)
-                children.append(grands)
-                grands = []
                 parent.append(children)
                 children = []
+
+                if grands:
+                    id = 0
+                    grands.insert(0, title)
+                    children.append(grands)
+                    grands = []
+            title = data.split(':')[1].split(',')[0].strip()
             continue
 
         if "Gred" in data \
@@ -63,12 +66,12 @@ def data_arrange(data_list):
             grands.insert(0, title)
             children.append(grands)
             grands = []
+            
         grands.append(data)
         id += 1
 
     # Update last children
     parent.append(children)
-
     return parent
 
 
