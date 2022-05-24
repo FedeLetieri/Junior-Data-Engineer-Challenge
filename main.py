@@ -117,13 +117,11 @@ if __name__ == '__main__':
     dt = datetime.today().date()
     date = str(dt.year) + "/" + str(dt.month) + "/" + str(dt.day - 1)
     prev_date = str(dt.year) + "/" + str(dt.month) + "/" + str(dt.day - 3)
-    URL_Farm = "https://sdvi2.fama.gov.my/price/direct/price/daily_commodityRpt.asp?Pricing=A&LevelCd=04&PricingDt=" \
-               + date + "&PricingDtPrev=" + prev_date
-    URL_Retail = "https://sdvi2.fama.gov.my/price/direct/price/daily_commodityRpt.asp?Pricing=A&LevelCd=01&PricingDt=" \
-                 + date + "&PricingDtPrev=" + prev_date
-    URL_Wholesale = "https://sdvi2.fama.gov.my/price/direct/price/daily_commodityRpt.asp?Pricing=A&LevelCd=0" \
-                    "3&PricingDt=" + date + "&PricingDtPrev=" + prev_date
+    URL_Farm = "https://sdvi2.fama.gov.my/price/direct/price/daily_commodityRpt.asp?Pricing=A&LevelCd=04"
+    URL_Retail = "https://sdvi2.fama.gov.my/price/direct/price/daily_commodityRpt.asp?Pricing=A&LevelCd=01"
+    URL_Wholesale = "https://sdvi2.fama.gov.my/price/direct/price/daily_commodityRpt.asp?Pricing=A&LevelCd=03"
 
+    print(URL_Farm)
     price_farm = read_html(URL_Farm)
     price_farm = price_farm[1:-1]
     list_price_farm = data_arrange(price_farm)
