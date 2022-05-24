@@ -121,7 +121,6 @@ if __name__ == '__main__':
     URL_Retail = "https://sdvi2.fama.gov.my/price/direct/price/daily_commodityRpt.asp?Pricing=A&LevelCd=01"
     URL_Wholesale = "https://sdvi2.fama.gov.my/price/direct/price/daily_commodityRpt.asp?Pricing=A&LevelCd=03"
 
-    print(URL_Farm)
     price_farm = read_html(URL_Farm)
     price_farm = price_farm[1:-1]
     list_price_farm = data_arrange(price_farm)
